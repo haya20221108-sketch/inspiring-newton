@@ -1,0 +1,187 @@
+/* --- ベース設定 --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #fff5f8;
+  color: #333;
+}
+
+/* --- サイドバーの挙動 (最優先) --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%); /* 画面の左外に隠す */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* 画面内に戻す */
+}
+
+/* サイドバーを開くボタン（デカめ設定） */
+.open-sidebar-btn {
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #ff69b4;
+  cursor: pointer;
+  padding: 10px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- メインコンテンツエリア --- */
+.view-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.view-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.view-title {
+  font-size: 20px;
+  margin: 0;
+  color: #ff69b4;
+}
+
+/* --- 検索・フィルター --- */
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 2px solid #ff69b4;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  outline: none;
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ff69b4;
+  background: white;
+  color: #ff69b4;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.chip.active {
+  background: #ff69b4;
+  color: white;
+}
+
+/* --- カードリスト --- */
+.card-item {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.1);
+  border: 1px solid #ffe4ed;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.total-badge {
+  background: #ff69b4;
+  color: white;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+/* アカウント別内訳 */
+.inventory-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px dashed #ffd1dc;
+}
+
+.acc-mini-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #f8f8f8;
+  color: #999;
+  border: 1px solid #eee;
+}
+
+.acc-mini-badge.has-stock {
+  background: #fff0f5;
+  color: #ff69b4;
+  border-color: #ffb6c1;
+  font-weight: bold;
+}
+
+/* --- 登録画面 (AddCardView用) --- */
+.acc-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ffd1dc;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 20px;
+}
